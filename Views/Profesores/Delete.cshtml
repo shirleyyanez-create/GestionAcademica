@@ -1,0 +1,27 @@
+@model GestionAcademica.Models.Profesor
+
+@{
+    ViewData["Title"] = "Eliminar Profesor";
+}
+
+<h1>Eliminar Profesor</h1>
+
+<h3>¿Está seguro de que desea eliminar este profesor?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Especialidad</dt>
+        <dd class="col-sm-9">@Model.Especialidad</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProfesorId" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

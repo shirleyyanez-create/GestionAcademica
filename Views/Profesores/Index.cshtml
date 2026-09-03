@@ -1,0 +1,37 @@
+@model IEnumerable<GestionAcademica.Models.Profesor>
+
+@{
+    ViewData["Title"] = "Profesores";
+}
+
+<h1>Profesores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nuevo Profesor</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Especialidad</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Email</td>
+            <td>@item.Especialidad</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ProfesorId" class="btn btn-sm btn-info">Detalles</a>
+                <a asp-action="Edit" asp-route-id="@item.ProfesorId" class="btn btn-sm btn-warning">Editar</a>
+                <a asp-action="Delete" asp-route-id="@item.ProfesorId" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

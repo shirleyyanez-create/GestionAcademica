@@ -1,0 +1,46 @@
+@model GestionAcademica.Models.Matricula
+
+@{
+    ViewData["Title"] = "Nueva Matrícula";
+}
+
+<h1>Nueva Matrícula</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EstudianteId" class="control-label">Estudiante</label>
+                <select asp-for="EstudianteId" class="form-control" asp-items="ViewBag.EstudianteId">
+                    <option value="">-- Selecciona un estudiante --</option>
+                </select>
+                <span asp-validation-for="EstudianteId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CursoId" class="control-label">Curso</label>
+                <select asp-for="CursoId" class="form-control" asp-items="ViewBag.CursoId">
+                    <option value="">-- Selecciona un curso --</option>
+                </select>
+                <span asp-validation-for="CursoId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="FechaMatricula" class="control-label"></label>
+                <input asp-for="FechaMatricula" class="form-control" type="date" />
+                <span asp-validation-for="FechaMatricula" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

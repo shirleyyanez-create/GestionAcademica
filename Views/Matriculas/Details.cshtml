@@ -1,0 +1,25 @@
+@model GestionAcademica.Models.Matricula
+
+@{
+    ViewData["Title"] = "Detalles de la Matrícula";
+}
+
+<h1>Detalles de la Matrícula</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Estudiante</dt>
+        <dd class="col-sm-9">@Model.Estudiante?.Nombre</dd>
+
+        <dt class="col-sm-3">Curso</dt>
+        <dd class="col-sm-9">@Model.Curso?.Nombre</dd>
+
+        <dt class="col-sm-3">Fecha de Matrícula</dt>
+        <dd class="col-sm-9">@Model.FechaMatricula.ToShortDateString()</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MatriculaId" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

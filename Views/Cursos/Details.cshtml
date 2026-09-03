@@ -1,0 +1,25 @@
+@model GestionAcademica.Models.Curso
+
+@{
+    ViewData["Title"] = "Detalles del Curso";
+}
+
+<h1>Detalles del Curso</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Créditos</dt>
+        <dd class="col-sm-9">@Model.Creditos</dd>
+
+        <dt class="col-sm-3">Profesor</dt>
+        <dd class="col-sm-9">@Model.Profesor?.Nombre</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CursoId" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>
